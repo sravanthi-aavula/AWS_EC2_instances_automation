@@ -12,7 +12,7 @@ aws ec2 run-instances \
 --image-id ami-037688ecd92e8611e \
 --instance-type t3.micro \
 --count 1 \
---user-data file://linux1.sh
+--user-data file://linux/linux1.sh
  
  
 #############################################
@@ -25,7 +25,7 @@ aws ec2 run-instances \
 --image-id ami-037688ecd92e8611e \
 --instance-type t3.micro \
 --count 1 \
---user-data file://linux2.sh
+--user-data file://linux/linux2.sh
  
  
 #############################################
@@ -38,7 +38,7 @@ aws ec2 run-instances \
 --image-id ami-037688ecd92e8611e \
 --instance-type t3.micro \
 --count 1 \
---user-data file://linux3.sh
+--user-data file://linux/linux3.sh
  
  
 #############################################
@@ -54,7 +54,7 @@ aws ec2 run-instances \
 --key-name windows-key \
 --security-group-ids sg-01af5729bc067e32c \
 --associate-public-ip-address \
---user-data file://windows.ps1
+--user-data file://windows/windows.ps1
  
  
 #############################################
@@ -70,7 +70,7 @@ aws ec2 run-instances \
 --key-name windows-key \
 --security-group-ids sg-01af5729bc067e32c \
 --associate-public-ip-address \
---user-data file://windows1.ps1
+--user-data file://windows/windows1.ps1
  
  
 echo "All 5 instances launched successfully!"
