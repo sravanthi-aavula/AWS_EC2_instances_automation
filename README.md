@@ -13,8 +13,8 @@ Instance Name	Operating System	Installed Software
 Linux-Nginx	Amazon Linux 2	Nginx Web Server
 Linux-Docker	Amazon Linux 2	Docker Engine
 Linux-Jenkins	Amazon Linux 2	Jenkins CI/CD
-Windows-Python	Windows Server	Python Environment
-Windows-SQL	Windows Server	SQL Server
+Windows-Browser	Windows Server with Chrome Browser
+Windows-HTML	Windows Server	with a HTML Web Page
 All instances are launched using AWS CLI commands inside a single Bash automation script.
 
 
@@ -22,9 +22,11 @@ Repository Structure
 aws_ec2_instances_automation
 │
 ├── deploy_instances.sh
-├── linux1.sh
-├── linux2.sh
-├── linux3.sh
+├── linux
+  ├── linux2.sh
+  ├── linux2.sh
+  ├── linux3.sh
+├── windows
 ├── windows1.ps1
 ├── windows.ps1
 └── .gitignore
@@ -40,9 +42,9 @@ linux2.sh
 linux3.sh
 • Installs and configures Jenkins
 windows1.ps1
-• Installs Python
+• Installs Chrome Browser
 windows.ps1
-• Installs SQL Server
+• Installs HTML Web Page
 
 
 Prerequisites
@@ -56,7 +58,7 @@ Before running the automation script, ensure the following are configured:
 
 How to Run
 Clone the repository:
-git clone https://github.com/YOUR_USERNAME/aws_ec2_instances_automation.git
+git clone https://github.com/sravanthi-aavula/aws_ec2_instances_automation.git
 
 Navigate to the project folder:
 cd aws_ec2_instances_automation
