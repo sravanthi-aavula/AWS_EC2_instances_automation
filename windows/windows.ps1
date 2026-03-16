@@ -1,5 +1,11 @@
+#!/bin/bash
+ 
 <powershell>
-Invoke-WebRequest -Uri https://www.python.org/ftp/python/3.11.5/python-3.11.5-amd64.exe -OutFile C:\python.exe
-Start-Process C:\python.exe -ArgumentList "/quiet InstallAllUsers=1 PrependPath=1" -Wait
+
+Invoke-WebRequest "https://dl.google.com/chrome/install/latest/chrome_installer.exe" -OutFile "C:\ChromeSetup.exe"
+
+Start-Process "C:\ChromeSetup.exe" -ArgumentList "/silent /install" -Wait
 </powershell>
 
+echo "Windows1 EC2 instance with Chrome is launched" 
+ 

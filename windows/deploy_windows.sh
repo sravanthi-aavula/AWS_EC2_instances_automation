@@ -3,10 +3,10 @@
 echo "Creating Windows EC2 Instances"
 
 #############################################
-# Windows Instance 1 (Python)
+# Windows Instance 1 (Browser)
 #############################################
  
-echo "Launching Windows Instance 1 - Python..."
+echo "Launching Windows Instance 1 - Google Chrome Browser..."
  
 aws ec2 run-instances \
 --image-id ami-060cdb09135556485 \
@@ -15,15 +15,15 @@ aws ec2 run-instances \
 --key-name windows-key \
 --security-group-ids sg-01af5729bc067e32c \
 --associate-public-ip-address \
---user-data file://windows/windows.ps1 \
---tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-SQL}]'
+--user-data file://windows.ps1 \
+--tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-Browser}]'
 
  
 #############################################
-# Windows Instance 2 (SQL Server)
+# Windows Instance 2 (HTML Page)
 #############################################
  
-echo "Launching Windows Instance 2 - SQL Server..."
+echo "Launching Windows Instance 2 - HTML Page..."
  
 aws ec2 run-instances \
 --image-id ami-060cdb09135556485 \
@@ -32,9 +32,9 @@ aws ec2 run-instances \
 --key-name windows-key \
 --security-group-ids sg-01af5729bc067e32c \
 --associate-public-ip-address \
---user-data file://windows/windows1.ps1 \
---tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-Python}]'
+--user-data file://windows1.ps1 \
+--tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-HTML}]'
 
  
-echo "Windows instances launched successfully!"
+echo "HTML Page launched successfully!"
 
