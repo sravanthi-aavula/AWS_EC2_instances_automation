@@ -15,7 +15,7 @@ aws ec2 run-instances \
 --key-name windows-key \
 --security-group-ids sg-01af5729bc067e32c \
 --associate-public-ip-address \
---user-data file://windows.ps1 \
+--user-data file://windows/windows.ps1 \
 --tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-Browser}]'
 
  
@@ -32,7 +32,7 @@ aws ec2 run-instances \
 --key-name windows-key \
 --security-group-ids sg-01af5729bc067e32c \
 --associate-public-ip-address \
---user-data file://windows1.ps1 \
+--user-data file://windows/windows1.ps1 \
 --tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Windows-HTML}]'
 
  
