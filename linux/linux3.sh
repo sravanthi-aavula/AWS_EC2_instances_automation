@@ -1,9 +1,10 @@
 #!/bin/bash
-yum update -y
-yum install java-17-amazon-corretto -y
-wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
-yum install jenkins -y
-systemctl start jenkins
-systemctl enable jenkins
+sudo yum update -y
+sudo yum install java-17-amazon-corretto -y
+sudo amazon-linux-extras install nginx1 -y
+
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+echo "<h1> Java installled succesfully </h1>" | sudo tee /usr/share/nginx/html/index.html
 
