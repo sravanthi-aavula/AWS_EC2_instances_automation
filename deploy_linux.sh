@@ -31,17 +31,17 @@ aws ec2 run-instances \
  
  
 #############################################
-# Linux Instance 3 (Jenkins)
+# Linux Instance 3 (Java)
 #############################################
  
-echo "Launching Linux Instance 3 - Jenkins..."
+echo "Launching Linux Instance 3 - Java..."
  
 aws ec2 run-instances \
 --image-id ami-037688ecd92e8611e \
 --instance-type t3.micro \
 --count 1 \
 --user-data file://linux/linux3.sh \
---tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Linux-Jenkins}]'
+--tag-specifications 'ResourceType=instance, Tags=[{Key=Name, Value=Linux-java}]'
 
 
 echo "Linux instances deployed"
