@@ -1,101 +1,126 @@
-AWS EC2 Instances Automation
-Overview
-This project automates the provisioning of multiple EC2 instances in Amazon Web Services (AWS) using AWS CLI and Bash scripting.
-With a single execution of a master script, the infrastructure automatically launches:
-• 3 Linux EC2 instances
-• 2 Windows EC2 instances
-Each instance installs and configures specific software using user-data scripts.
+# AWS EC2 Automation using GitHub Actions
+ 
+##  Project Overview
+This project automates the provisioning of multiple AWS EC2 instances (Linux and Windows) using shell scripts and GitHub Actions.
+ 
+The automation eliminates manual effort by triggering infrastructure deployment directly from a CI/CD pipeline.
+ 
+---
+ 
+##  Architecture
+ 
+- GitHub Actions → triggers automation
+- AWS CLI → launches EC2 instances
+- User-data scripts → configure instances automatically
+- Public IP → used to access deployed applications
+ 
+---
+ 
+##  Technologies Used
+ 
+- AWS EC2
+- AWS CLI
+- GitHub Actions (CI/CD)
+- Bash scripting
+- PowerShell (for Windows)
+- Nginx / Docker / Python (Linux instances)
+ 
+---
 
+##  Project Structure
+AWS_EC2_instances_automation/ │ ├── .github/workflows/ │   └── deploy.yml          # GitHub Actions workflow │ ├── linux/ │   ├── linux1.sh           # Nginx setup │   ├── linux2.sh           # Docker setup │   └── linux3.sh           # Python setup │ ├── windows/ │   ├── windows1.ps1        # HTML server setup │   └── windows2.ps1        # Chrome setup │ ├── deploy_instances.sh     # Main automation script ├── deploy_linux.sh         # Linux deployment script ├── deploy_windows.sh       # Windows deployment script └── README.md
 
-Architecture
-The automation creates the following instances:
-Instance Name	Operating System	Installed Software
-Linux-Nginx	Amazon Linux 2	Nginx Web Server
-Linux-Docker	Amazon Linux 2	Docker Engine
-Linux-Jenkins	Amazon Linux 2	Jenkins CI/CD
-Windows-Browser	Windows Server with Chrome Browser
-Windows-HTML	Windows Server	with a HTML Web Page
-All instances are launched using AWS CLI commands inside a single Bash automation script.
-
-
-Repository Structure
-aws_ec2_instances_automation
-│
-├── deploy_instances.sh
-├── linux
-  ├── linux2.sh
-  ├── linux2.sh
-  ├── linux3.sh
-├── windows
-├── windows1.ps1
-├── windows.ps1
-└── .gitignore
-
-File Descriptions
-deploy_instances.sh
-• Master orchestration script
-• Launches all EC2 instances
-linux1.sh
-• Installs and configures Nginx
-linux2.sh
-• Installs Docker
-linux3.sh
-• Installs and configures Jenkins
-windows1.ps1
-• Installs Chrome Browser
-windows.ps1
-• Installs HTML Web Page
-
-
-Prerequisites
-Before running the automation script, ensure the following are configured:
-• AWS CLI installed
-• AWS CLI credentials configured
-• EC2 Security Group created
-• Key Pair created (for Windows instances)
-• Required permissions for EC2 provisioning
-
-
-How to Run
-Clone the repository:
-git clone https://github.com/sravanthi-aavula/aws_ec2_instances_automation.git
-
-Navigate to the project folder:
-cd aws_ec2_instances_automation
-
-Make the script executable:
-chmod +x deploy_instances.sh
-
-Run the deployment script:
-./deploy_instances.sh
-
-
-What the Script Does
-The master script will:
-1. Launch 3 Amazon Linux EC2 instances
-2. Launch 2 Windows Server EC2 instances
-3. Configure each instance using user-data scripts
-4. Automatically tag instances with meaningful names
-
-
-Technologies Used
-• AWS EC2
-• AWS CLI
-• Bash scripting
-• PowerShell
-• Linux Administration
-• Cloud Infrastructure Automation
-
-
-Learning Outcome
-This project demonstrates:
-• Infrastructure automation using AWS CLI
-• Automated server configuration using user-data
-• Multi-OS cloud provisioning
-• DevOps scripting practices
-
-
-Author
-Aavula Sravanthi
-
-
+---
+ 
+##  Technologies Used
+ 
+- AWS EC2
+- AWS CLI
+- GitHub Actions (CI/CD)
+- Bash scripting
+- PowerShell
+- Nginx / Docker / Python
+ 
+---
+ 
+##  Automation Workflow
+ 
+###  Trigger Methods
+- Automatic: On push to `main`
+- Manual: Using **Run Workflow** button
+ 
+---
+ 
+###  Workflow Process
+ 
+1. GitHub Actions is triggered
+2. AWS credentials are loaded from secrets
+3. `deploy_instances.sh` is executed
+4. EC2 instances are launched
+5. User-data scripts configure servers automatically
+ 
+---
+ 
+##  GitHub Secrets
+ 
+- AWS_ACCESS_KEY
+- AWS_SECRET_KEY
+- AWS_REGION
+ 
+---
+ 
+##  Instances Created
+ 
+### Linux
+- Nginx Web Server
+- Docker Environment
+- Python Setup
+ 
+### Windows
+- HTML Web Server (via browser)
+- Chrome Installed
+ 
+---
+ 
+##  Access
+ 
+- Use EC2 Public IP
+- Linux → Open in browser
+- Windows → Connect via RDP
+ 
+---
+ 
+##  How to Run
+ 
+### Manual
+1. Go to **Actions tab**
+2. Select **EC2 Automation**
+3. Click **Run workflow**
+ 
+### Automatic
+- Push any change → triggers deployment
+ 
+---
+ 
+##  Key Features
+ 
+- One-click infrastructure deployment
+- CI/CD integration with GitHub Actions
+- Automated server configuration
+- Supports both Linux and Windows instances
+- Secure credential handling
+ 
+---
+ 
+##  Future Improvements
+ 
+- Terraform integration
+- Auto-termination of instances
+- Monitoring with CloudWatch
+- Logging system
+ 
+---
+ 
+##  Conclusion
+ 
+This project demonstrates automated cloud infrastructure deployment using DevOps practices, reducing manual effort and improving consistency.
