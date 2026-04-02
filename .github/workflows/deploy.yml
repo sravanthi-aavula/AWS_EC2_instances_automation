@@ -1,9 +1,6 @@
 name: EC2 Automation
  
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch: 
   
 jobs:
